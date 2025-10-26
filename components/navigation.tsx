@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Menu, X } from "lucide-react";
@@ -29,12 +30,17 @@ export function Navigation() {
     <nav className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">TF</span>
-            </div>
-            <span className="font-bold text-xl text-foreground">TeamFirst</span>
+          {/* Logo (images from /public) */}
+          <Link href="/" className="flex items-center space-x-2" aria-label="TeamFirst Home">
+            {/* Square mark */}
+            <Image
+              src="/logo.png"
+              width={32}
+              height={32}
+              alt="TeamFirst logo"
+              className="rounded"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,8 +57,6 @@ export function Navigation() {
               {isConnected && prettyBal && (
                 <Badge variant="secondary" className="font-mono">{prettyBal}</Badge>
               )}
-
-              {/* RainbowKit multi wallet connect */}
               <div className="ml-1">
                 <ConnectButton
                   chainStatus="icon"
@@ -98,7 +102,6 @@ export function Navigation() {
                 </div>
               )}
 
-              {/* RainbowKit connect button works great on mobile too */}
               <div className="w-full">
                 <ConnectButton />
                 {isConnected && short && (
