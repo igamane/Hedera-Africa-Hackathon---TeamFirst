@@ -1,0 +1,9 @@
+{
+  "name": "TeamFirst Supporter — Gold",
+  "type": "nft",
+  "format": "hip412@1.2.0",
+  "description": "Thank you for supporting grassroots football on TeamFirst.",
+  "image": "ipfs://bafybeict47vb74yo3z7qogxnbk3rqm6hqvzd7d2x23wchmmswnb7zdzqoy/gold.png",
+  "attributes": [{ "trait_type": "Tier", "value": "Gold" }],
+  "properties": { "collection": "TeamFirst Supporter", "artist": "AI generated, unified style" }
+}
