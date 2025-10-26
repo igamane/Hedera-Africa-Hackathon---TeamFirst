@@ -35,8 +35,8 @@ export function Navigation() {
             {/* Square mark */}
             <Image
               src="/logo.png"
-              width={32}
-              height={32}
+              width={72}
+              height={72}
               alt="TeamFirst logo"
               className="rounded"
               priority
