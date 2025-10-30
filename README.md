@@ -2,8 +2,6 @@
 
 TeamFirst is a Next.js 14 application that lets football fans donate HBAR directly to their favourite African clubs while tracking transparent impact on Hedera. The platform showcases club profiles, real-time donation activity, NFT supporter badges, and admin tooling so organisers can onboard teams quickly during hackathon demos.
 
-![TeamFirst hero illustration](public/og-image.png)
-
 ## Table of Contents
 - [Core Idea](#core-idea)
 - [Feature Highlights](#feature-highlights)
@@ -23,7 +21,6 @@ TeamFirst is a Next.js 14 application that lets football fans donate HBAR direct
 ## Core Idea
 - **Problem:** African clubs struggle to accept borderless, transparent contributions from global fanbases.
 - **Solution:** Fans connect Hedera wallets, select a club, and send instant, low-fee HBAR donations that are mirrored to Hedera Consensus Service (HCS) for auditable receipts. Clubs receive dashboards, fan leaderboards, and marketing-ready proof of support.
-- **Hackathon Fit:** Combines Hedera smart wallet tooling, consensus messaging, and community engagement to deliver a polished MVP in a weekend sprint.
 
 ## Feature Highlights
 | Area | What it Delivers |
