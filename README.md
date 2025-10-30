@@ -110,9 +110,6 @@ The development server runs at `http://localhost:3000`. RainbowKit prompts appea
 | `npm run start` | Serve the production build (`npm run build` first). |
 | `npm run lint` | Run Next.js linting (ESLint + TypeScript). |
 
-## Testing Notes
-The project currently has no automated tests. For hackathon judging, demo the end-to-end donation flow using Hedera testnet accounts and monitor Mirror Node confirmations in the `/me` dashboard.
-
 ## Deployment
 1. Run `npm run build` to ensure the app compiles with your environment variables.
 2. Deploy to Vercel or any Node-compatible host that supports Next.js App Router.
