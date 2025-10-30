@@ -33,6 +33,36 @@ TeamFirst is a Next.js 14 application that lets football fans donate HBAR direct
 | API Layer | Next.js route handlers for donation feed, leaderboard aggregation, NFT mint/claim, and HCS message submission backed by MongoDB. |
 | Real-Time UX | Client context that simulates websocket updates for demos and syncs with API data when available. |
 
+
+## Hedera Integration Summary (Detailed)
+### Hedera Consensus Service (HCS)
+TeamFirst posts every donation receipt to a dedicated HCS topic so clubs gain an immutable audit trail that judges can replay during demos. Operational staff use `TopicCreateTransaction` to initialise the channel once per club and then `TopicMessageSubmitTransaction` to notarise each donation payload, ensuring auditable provenance that does not depend on proprietary infrastructure.
+
+**Transaction Types:** `TopicCreateTransaction`, `TopicMessageSubmitTransaction`
+
+**Economic Justification:** HCS message fees remain around $0.0001 per submission, which lets grassroots academies log thousands of micro-gifts without unpredictable surcharges—vital when operating on tight margins and community sponsorships across Africa.
+
+### Hedera Token Service (HTS)
+Supporter badges are issued as Hedera NFTs so fans can prove their contributions anywhere. The backend orchestrates collection setup with `TokenCreateTransaction`, mints tiers through `TokenMintTransaction`, and distributes badges via `TransferTransaction` calls triggered after each qualifying donation.
+
+**Transaction Types:** `TokenCreateTransaction`, `TokenMintTransaction`, NFT `TransferTransaction`
+
+**Economic Justification:** Sub-cent minting and transfer fees mean clubs can reward engagement without diluting treasury reserves, while Hedera’s predictable throughput keeps badge fulfilment instant even during match-day surges—key for sustaining fan excitement and repeat giving.
+
+### Hedera JSON-RPC (Hashio) for HBAR Transfers
+Fans donate HBAR using the familiar EVM flow through Hashio’s JSON-RPC gateway. The frontend signs `eth_sendTransaction` payloads that settle as native Hedera transfers, with optional `eth_call` simulations to pre-flight amounts before submission, delivering a streamlined wallet experience.
+
+**Transaction Types:** `eth_sendTransaction`, optional `eth_call` pre-flight checks (maps to Hedera crypto transfers)
+
+**Economic Justification:** Hedera’s deterministic fee schedule keeps cross-border donations affordable—often under a cent—while finality in ~5 seconds prevents double-spend risk and builds trust with diaspora supporters who want assurance that clubs receive funds immediately.
+
+### Hedera Mirror Node APIs
+Server routes enrich club dashboards by querying Mirror Node REST endpoints for recent transfers, NFT ownership, and topic messages. These lookups validate leaderboard totals, populate supporter histories, and confirm badge delivery without requiring custodial access to user wallets.
+
+**Transaction Types:** Mirror Node `api/v1` REST queries (read-only)
+
+**Economic Justification:** Mirror Node access is free and horizontally scalable, so organisers can scale analytics and transparency tooling without incurring new infrastructure costs—critical for programmes that must demonstrate impact to donors while keeping operations lean.
+
 ## Architecture
 ```
 Next.js 14 (App Router)
