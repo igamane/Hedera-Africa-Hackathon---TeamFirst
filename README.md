@@ -10,7 +10,9 @@ TeamFirst is a Next.js 14 application that lets football fans donate HBAR direct
 ## Table of Contents
 - [Core Idea](#core-idea)
 - [Feature Highlights](#feature-highlights)
+- [Hedera Integration Summary (Detailed)](#hedera-integration-summary-(detailed))
 - [Architecture](#architecture)
+- [Architecture Diagram](#architecture-diagram)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -77,6 +79,12 @@ Next.js 14 (App Router)
 ├── Data: MongoDB via Mongoose models (Donation, User, Nft)
 └── Tooling: React Query, SWR, TanStack Query, TypeScript, Zod
 ```
+
+## Architecture Diagram
+
+![Architecture Diagram](./public/diagram.png)
+
+
 - **App Shell:** `app/` handles routing with shared navigation/footer components and provider wrappers for Wagmi, RainbowKit, and React Query.
 - **Blockchain Services:** `lib/hedera-server.ts` initialises Hedera clients, creates HCS topics, and submits donation receipts. `lib/wagmi.ts` fixes WalletConnect + Hedera Testnet configuration.
 - **Persistence:** `lib/mongo.ts` exposes a cached Mongoose connection reused by API routes such as `app/api/feed/route.ts` and `app/api/leaderboard/route.ts`.
