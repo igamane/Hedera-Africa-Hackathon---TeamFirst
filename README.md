@@ -1,4 +1,4 @@
-# TeamFirst — Gaming and NFTs
+# TeamFirst — 1. Onchain Finance & Real-World Assets (RWA)
 
 TeamFirst is a Next.js 14 application that lets football fans donate HBAR directly to their favourite African clubs while tracking transparent impact on Hedera. The platform showcases club profiles, real-time donation activity, NFT supporter badges, and admin tooling so organisers can onboard teams quickly during hackathon demos.
 
